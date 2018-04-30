@@ -4,6 +4,7 @@ generate wordlist easily
 # Screencast
 [![asciicast](https://asciinema.org/a/YPXuMdhnItCj5n9mBsNWJ4o1V.png)](https://asciinema.org/a/YPXuMdhnItCj5n9mBsNWJ4o1V)
 
+NOTE: this is not its actual spped, the recorder is just lagging :(
 # How To Use
 you can run it by `python weely.py` but it will use the default arguments
 
