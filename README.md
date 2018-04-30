@@ -15,7 +15,7 @@ you can run it by `python weely.py` but it will use the default arguments
 
 `output` - set output file (default is output.txt)
 
-`alphabets` - set alphabets to use in bruteforcing (default is "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890!@#*+- " - you can use numbers symbols)
+`alphabets` - set alphabets to use in bruteforcing (default is "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890!@#*+- " - you can use numbers, symbols, letters)
 
 **example**
 this will begin with 11111, end with 90000 passwords, will use in bruteforcing 123456789 and the output file will be output.txt
