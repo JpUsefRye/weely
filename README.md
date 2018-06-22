@@ -1,12 +1,8 @@
 # Weely Project
 generate wordlist easily
 
-# Screencast
-[![asciicast](https://asciinema.org/a/YPXuMdhnItCj5n9mBsNWJ4o1V.png)](https://asciinema.org/a/YPXuMdhnItCj5n9mBsNWJ4o1V)
-
-NOTE: this is not its actual speed of weely, the recorder is just lagging :(
 # How To Use
-you can run it by `python weely.py` but it will use the default arguments
+you can run it by `python weely.py` and it will use the default arguments
 
 ### arguments
 `begin`  - set a start point (default is 1)
@@ -26,8 +22,17 @@ this will begin with 11111, end with 90000 passwords, will use in bruteforcing 1
 for help type `python weely.py --help`
 
 
+# Weely Modules
+[gmail.py](gmail.py) - Bruteforce gmail accounts (not for evil uses)
+
 # Performance
 generated 9211 passwords within 1.128 seconds on medium intel processor
+
+# Contributing
+are pull requests are welcomed.
+
+just build you own weely like module, or just improve
+an existing one.
 
 # License
 released under **Gnu General Public License 3**
