@@ -31,3 +31,13 @@ def gmail_goodbye(start: float, wwa: int) -> None:
     print(f"It took {round(time.time()-start,3)} seconds")
     print(f"Password tried in this operation: {wwa}")
     sys.exit(0)
+
+def gmail_banner() -> None:
+    print("""
+     __      __              .__            ________               .__.__
+    /  \    /  \ ____   ____ |  | ___.__.  /  _____/  _____ _____  |__|  |
+    \   \/\/   // __ \_/ __ \|  |<   |  | /   \  ___ /     \\__  \ |  |  |
+     \        /\  ___/\  ___/|  |_\___  | \    \_\  \  Y Y  \/ __ \|  |  |__
+      \__/\  /  \___  >\___  >____/ ____|  \______  /__|_|  (____  /__|____/
+           \/       \/     \/     \/              \/      \/     \/
+    """)

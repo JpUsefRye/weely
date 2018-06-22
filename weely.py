@@ -25,9 +25,6 @@ def bruteforce(alphabets: str,
         if func == None:
             print("Warning: you did not specify a function, ignoring...")
             sys.exit(1)
-        if func_farg == None:
-            print("Warning: you did not specify the first arg of the function")
-            print("that depends on your configuration.")
 
     try:
         for a in range(begin, len(alphabets) + 1):
@@ -47,7 +44,7 @@ def bruteforce(alphabets: str,
                         func(start, waa,
                              func_farg, k)
                     else:
-                        func(pwd=k)
+                        sys.exit(0)
     except KeyboardInterrupt as e:
         weely_goodbye(start, wwa)
 
