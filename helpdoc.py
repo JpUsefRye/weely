@@ -10,6 +10,8 @@ def arguments() -> None:
     print("alphabets    set alphabets to use in generating wordlist")
     print("output       set output file")
     print("--help       show this message")
+    print('\n')
+    print("Example: python weely.py begin=6 output=out.txt")
 
 def weely_usage() -> None:
     header()
