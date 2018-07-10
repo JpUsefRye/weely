@@ -1,0 +1,21 @@
+Weely Project
+-----------------------
+
+* python bruteforcing library
+
+    Features:
+        No dependencies
+        Easy API
+        Easy to use
+
+
+provided example script to create your own bruteforcer (gmail.py)
+
+gmail.py:
+    bruteforce gmail accounts ( do not be evil )
+
+
+
+-----------------------------------------------------------
+
+This software is licensed under Gnu General Public License 3
