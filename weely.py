@@ -36,14 +36,13 @@ def bruteforce(alphabets: str,
                         op.write(k+'\n')
                     wwa+=1
 
-                    if until is not True:
+                    if until != True:
                         if wwa == until:
                             weely_goodbye(start, wwa)
                 else:
-                    if func_farg is not None:
+                    if func_farg != None:
                         func(start, waa,
                              func_farg, k)
-                        return
                     else:
                         sys.exit(0)
     except KeyboardInterrupt:
