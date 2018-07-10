@@ -1,6 +1,19 @@
-# Author: JpUsefRye
-# GitHub: https://github.com/JpUsefRye/weely
-# License: GPL3
+"""
+Weely.py
+------------
+
+The Main API
+
+Write a powerful password list for bruteforcing and it
+is the main API
+
+Project URL: https://github.com/JpUsefRye/weely/
+Author URL: https://github.com/JpUsefRye/
+
+"""
+__version__ = "0.01"
+__author__ = "Youssef Hesham"
+
 import time
 import sys
 import itertools
