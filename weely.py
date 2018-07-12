@@ -54,7 +54,7 @@ def bruteforce(alphabets: str,
                             weely_goodbye(start, wwa)
                 else:
                     if func_farg != None:
-                        func(start, waa,
+                        func(start, wwa,
                              func_farg, k)
                     else:
                         sys.exit(0)
