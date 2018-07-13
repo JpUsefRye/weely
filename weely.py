@@ -54,8 +54,8 @@ def bruteforce(alphabets: str,
                             weely_goodbye(start, wwa)
                 else:
                     if func_farg != None:
-                        func(start, wwa,
-                             func_farg, k)
+                        func(func_farg, k,
+                             start, wwa)
                     else:
                         sys.exit(0)
     except KeyboardInterrupt:

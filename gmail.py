@@ -75,6 +75,8 @@ def check_gmail_bf(uemail, pwd,
     """
     i = imaplib.IMAP4_SSL('imap.gmail.com')
 
+    print(f"Trying: {str(uemail)}:{str(pwd)}")
+
     if _check_b(i, str(uemail), str(pwd)):
         gmail_goodbye(start, wwa)
 
@@ -124,11 +126,11 @@ def main() -> None:
     weely module
     """
     parser = Parser('gmail')  # initialize arguments
-    if parser.get_email() is None:
+    if parser.get_email() == None:
         gmail_banner()
         gmail_usage()
 
-    if parser.get_pwdlist() is None:  # BruteForce Attack
+    if parser.get_pwdlist() == None:  # BruteForce Attack
         bruteforce(parser.get_alphabets(),
                    parser.get_output(),
                    parser.get_begin(),

@@ -30,8 +30,8 @@ def weely_goodbye(start: float, wwa: int) -> None:
     sys.exit(0)
 
 def gmail_goodbye(start: float, wwa: int) -> None:
-    print(f"It took {round(time.time()-start,3)} seconds")
-    print(f"Password tried in this operation: {wwa}")
+    print(f"it took {round(time.time()-start,3)} seconds to crack!")
+    print(f"Passwords tried in this operation: {wwa}")
     sys.exit(0)
 
 def gmail_banner() -> None:
